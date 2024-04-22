@@ -1,0 +1,85 @@
+{% extends "layout.html"%}
+<!DOCTYPE html>
+
+{% block content_left %}
+        <h2>{{ strings.info_title }}</h2>
+        <p>   <h1>{{info_description}}</h1>
+            <form action = "/info" method="post">
+                <label for="age">{{age}}:</label>
+                <select id="age" name="age">
+                    <option value="">{{all}}</option>
+                    <option value="16-24">16-24</option>
+                    <option value="60+">60+</option>
+                </select>
+        
+                <label for="sex">{{sex}}:</label>
+                <select id="sex" name="sex">
+                    <option value="">{{all}}</option>
+                    <option value="Male">{{male}}</option>
+                    <option value="Female">{{female}}</option>
+                </select>
+        
+                <label for="license_type">{{license_type}}:</label>
+                <select id="license_type" name="license_type">
+                    <option value="">{{all}}</option>
+                    <option value="Provisional">{{provisional}}</option>
+                    <option value="Overseas License">{{overseas_license}}</option>
+                    <option value="No License">{{no_license}}</option>
+                </select>
+        
+                <button type="submit" name = "go" value = "Filter">{{filter}}</button>
+            </form>
+
+            {% if cols %}
+            <table>
+                <thead>
+                    <tr>
+                        {% for header in headers %}
+                        <th>{{ header }}</th>
+                        {% endfor %}
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for row in cols %}
+                    <tr>
+                        {% for value in row %}
+                        <td>{{ value }}</td>
+                        {% endfor %}
+                    </tr>
+                    {% endfor %}
+                    {% if message %}
+                    <p>{{ message }}</p>
+                    {% endif %}
+                </tbody>
+            </table>
+            {% endif %}
+            
+            {% if message %}
+            <p>{{ message }}</p>
+            {% endif %}
+            {% endblock content_left %}
+
+</html>
+
+            
+            {% block content_right %}
+            <head>
+                <title>{{age_comparison}}</title>
+                <!-- Include Plotly.js -->
+                <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+            </head>
+            <body>
+                <!-- Create a div to hold the graph -->
+                {% if graphJSON %}
+                <div id="graphDiv"></div>
+
+                <!-- Create a script to render the graph -->
+                <script>
+                    var graphData = JSON.parse({{ graphJSON | tojson | safe }});
+                    Plotly.newPlot('graphDiv', graphData.data, graphData.layout);
+                </script>
+                {% else %}
+                <p hidden>No graph data available.</p>
+                {% endif %}
+            </body>
+            {% endblock content_right %}

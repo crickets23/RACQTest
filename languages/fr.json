@@ -1,0 +1,18 @@
+{
+    "home_title": "Primes RACQ",
+    "home_description": "Rejoignez les 1,2 million de membres de l'assistance routière RACQ qui comptent sur RACQ pour les aider à aller où ils doivent aller. Profitez de l'assistance routière 24h/24 et 7j/7, partout en Australie Obtenez l'aide dont vous avez besoin via notre application, en ligne ou par téléphone Accédez aux avantages et réductions pour les membres sur la nourriture, les achats, les voyages et plus encore. Mais vous vous demandez sûrement pourquoi les prix des primes RACQ augmentent ? Eh bien, pour en savoir plus, cliquez ici pour voir les statistiques d'accidents et comprendre pourquoi.",
+    "info_title": "Informations",
+    "info_description": "Filtrer les données",
+    "age": "Âge",
+    "sex": "Sexe",
+    "license_type": "Type de permis",
+    "all": "Tous",
+    "male": "Homme",
+    "female": "Femme",
+    "provisional": "Provisoire",
+    "overseas_license": "Permis étranger",
+    "no_license": "Aucun permis",
+    "filter": "Filtrer",
+    "crashes_caused_by": "Voici le nombre d'accidents causés par ",
+    "age_comparison": "Comparaison d'âge"
+  }

@@ -1,0 +1,23 @@
+{% extends "layout.html"%}
+
+
+                    
+                    {% block content_left %}
+                    
+                        <h3>{{ strings.home_title }}</h3>
+                        <p>{{ strings.home_description }}</p>
+                    
+                        <h2></h2>
+                        <p></p>
+                        <h3></h3>
+                        <p></p>
+                    {% endblock content_left%}
+                
+                    
+                    {% block content_right%}
+
+                    <img src={{ url_for('static', filename='RSA-Easter-Hero.png')}} alt="Car Bro" width="688" height="345">
+      
+                    {% endblock content_right%} 
+                        
+                    

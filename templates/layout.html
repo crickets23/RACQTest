@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+
+	<html class="no-js" lang="en" id="scale_font">
+	
+	
+
+
+<head>
+	<meta charset="utf-8">
+	
+	<meta name="viewport" content="width=device-width">
+	<link rel="stylesheet" type="text/css" href={{ url_for('static', filename='main.css')}}>  
+	<link rel="stylesheet" type="text/css" href={{ url_for('static', filename='style.css')}}>      <!--The head tag allows  . .  -->
+	<script> document.documentElement.style.fontSize = localStorage.getItem('font'); </script>
+</head>
+
+<!-- BODY -->
+<!-- GRID-12 -->
+<body class="au-grid" >
+
+	<!-- HEADER -->
+	<header class="au-header au-header--dark" role="banner" >
+		<div class="container-fluid" >
+			<div class="row">
+				<div class="col-md-9">
+					<a class="au-header__brand" href="#">
+						<!--<img class="au-header__brand-image" alt="Insert alternate text here" src={{ url_for('static', filename='RACQ2.png') }} height="104.4em" width="200em"	> -->
+						<img src={{ url_for('static', filename='RACQ3.png')}} alt="RACQ logo" width="100" height="100">
+							<div class="au-header__text">							
+								
+								<h1 class="au-header__heading" style= 'font-size:1.5em;' >
+								</h1>
+								
+								<div class="au-header__subline" style= 'font-size:1em;' id='too_large'>
+								<!--Register to stay up to date with UV levels across Australia-->
+								</div>
+
+							</div>
+					</a>
+				</div>
+					
+				<div class="col-md-3">
+								
+								
+								
+								
+								</div>
+							
+								
+				</div>
+			</div>
+		</div>
+
+		<form action="{{ url_for('switch_lang') }}" method="post">
+			<select name="lang" onchange="this.form.submit()">
+				<option value="en" {% if session.lang == 'en' %}selected{% endif %}>English</option>
+				<option value="es" {% if session.lang == 'es' %}selected{% endif %}>Español</option>
+				<option value="fr" {% if session.lang == 'fr' %}selected{% endif %}>Français</option>
+			</select>
+		</form>
+		
+	</header>
+
+
+
+
+	<!-- MAIN NAVIGATION -->
+	<nav class="au-main-nav au-main-nav--dark" id="mainmenu" aria-label="main" style="line-height=100px">
+		<div class="container-fluid">
+			<div class="row">
+				<div class="col-md-8">
+					<div class="au-main-nav__content" >
+						
+								<ul class="au-link-list"  >
+								
+									<li><a href="/">Home</a></li>
+									<li><a href ="/info">Crash Statistics</a></li>
+									
+									<li id="set"></li>
+									
+									
+									
+									
+									
+								</ul>
+								
+								
+								
+					</div>
+				</div>
+				
+				<div class="col-md-4">
+					<div class="au-main-nav__content" >
+						<ul class="au-link-list">							
+								
+								<li>	<a>		<button class="btn" id="reset" type="button" >A</button>	</a>	</li>						
+						
+								<li>	<a>		<button   class="btn" type="button" id="s-inc" >A+</button>	</a>	</li>									
+
+								<li>	<a>		<button class="btn" type="button"  id="l-inc" >A+</button></a></li>
+								
+								<script>
+									document.getElementById("reset").addEventListener("click", sml);
+									function sml() {									
+										document.documentElement.style.fontSize = "16px";
+										localStorage.setItem("font","16px");
+										}
+								</script>
+								<script>								
+									document.getElementById("s-inc").addEventListener("click", med);
+									function med() {									
+										document.documentElement.style.fontSize = "20px";
+										localStorage.setItem("font","20px");
+										}
+								</script>
+								<script>	
+									document.getElementById("l-inc").addEventListener("click", lge);
+									function lge() {									
+										document.documentElement.style.fontSize = "24px";
+										localStorage.setItem("font","24px");
+										}
+								</script>
+								
+
+								
+
+										
+						</ul>										
+					</div>
+				</div>
+				
+			</div>
+		</div>
+	</nav>
+
+	<!-- MAIN BODY -->
+	<main>
+		<!--CONTENT-->
+		<section class="au-body">
+			<div class="container-fluid">
+				<div class="row">
+					<div class="col-md-6" id="content">
+						{% block content_left %}
+						
+						{% endblock content_left%}
+					</div>
+					<div class="col-md-6" >
+						
+						{% block content_right %}
+						
+						{% endblock content_right%}
+					</div>
+				</div>
+			</div>
+		</section>
+		<!--END CONTENT-->
+	</main>
+	<!-- END MAIN BODY -->
+<!--FOOTER -->
+<footer class="au-footer au-footer--dark au-body au-body--dark" role="contentinfo">
+	<div class="container-fluid">
+		<div class="row">
+			<nav class="col-md-12" aria-label="footer">
+				<ul class="au-link-list au-link-list--inline">
+					<li><a href="#">Privacy</a></li>
+					<li><a href="#">Disclaimer</a></li>
+					<li><a href="#">Accessibility</a></li>
+				</ul>
+			</nav>
+			<section class="col-sm-12">
+				<div class="au-footer__end">
+					<p>
+						© Commonwealth of Australia. With the exception of the Commonwealth Coat of Arms and where otherwise noted, this work is licensed under the <a href="https://github.com/govau/design-system-starter/blob/master/LICENSE" rel="external">MIT license</a>
+					</p>
+			   
+			</div>
+			<div>
+				<div id="rapbackground"></div>
+			</div>
+		   
+			</section>
+	   
+		</div>
+	   
+</footer>
+
+
+
+
+								
+	
+</body>
+</html>          
